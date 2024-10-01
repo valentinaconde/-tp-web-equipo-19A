@@ -7,7 +7,7 @@
             <p>Ingresá el código de tu voucher!</p>
             <asp:TextBox ID="voucherText" runat="server" CssClass="form-control"></asp:TextBox>
             <div>
-                <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary mt-2" Text="Siguiente" OnClick="Button1_Click" />
+                <asp:Button ID="BtnVoucherSig" runat="server" CssClass="btn btn-primary mt-2" Text="Siguiente" OnClick="BtnVoucherSig_Click" />
              </div>
         </div>
    
