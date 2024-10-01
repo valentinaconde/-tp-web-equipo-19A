@@ -32,7 +32,7 @@ namespace tp_web_equipo_19A
             {
                 Response.Redirect("ErrorVoucher.aspx", false);
             }
-            else Response.Redirect("Premios.aspx?voucher" + voucherText.Text, false);
+            else Response.Redirect("Premios.aspx?voucher=" + voucherText.Text, false);
         }
     }
 }

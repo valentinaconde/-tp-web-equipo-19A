@@ -39,7 +39,7 @@
                             <h5 class="card-title"><%: art.Nombre %></h5>
                             <p class="card-text"><%: art.Descripcion %></p>
                             </div>
-                            <a href="Formulario.aspx?id=<%:art.Id %>" class="btn btn-primary">Elegir</a>
+                            <a href="Formulario.aspx?Artid=<%:art.Id %>&voucherId=<%:voucherId%>" class="btn btn-primary">Elegir</a>
                         </div>
                     </div>
                 </div>
