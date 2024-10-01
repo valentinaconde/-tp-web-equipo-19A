@@ -11,6 +11,7 @@ namespace tp_web_equipo_19A
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Title = "PRUEBA LES";
 
         }
     }
