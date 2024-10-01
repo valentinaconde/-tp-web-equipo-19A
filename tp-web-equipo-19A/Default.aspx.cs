@@ -13,5 +13,12 @@ namespace tp_web_equipo_19A
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //TO DO: validar voucher
+            //voucherText.Text
+            Response.Redirect("Premios.aspx");
+        }
     }
 }

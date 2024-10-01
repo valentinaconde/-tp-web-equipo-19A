@@ -11,25 +11,16 @@ namespace tp_web_equipo_19A
 {
 
 
-    public partial class _Default
+    public partial class Premios
     {
 
         /// <summary>
-        /// voucherText control.
+        /// seleccionarBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox voucherText;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button seleccionarBtn;
     }
 }
