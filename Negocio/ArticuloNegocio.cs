@@ -1,13 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Windows.Forms;
 using System;
 using Dominio;
-using Negocio;
 
-namespace TPWinForm_equipo_19A
+namespace Negocio
 {
-    public class Negocio
+    public class ArticuloNegocio
     {
         public List<Articulo> Listar()
         {
@@ -43,7 +40,7 @@ namespace TPWinForm_equipo_19A
             catch (Exception ex)
             {
                 throw ex;
-             
+
             }
             finally
             {
@@ -54,7 +51,7 @@ namespace TPWinForm_equipo_19A
         {
             try
             {
-         
+
 
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearConsulta("INSERT INTO ARTICULOS (Codigo, Nombre, Descripcion, IdMarca, IdCategoria, Precio) VALUES (@Codigo, @Nombre, @Descripcion, @IdMarca, @IdCategoria, @Precio); SELECT SCOPE_IDENTITY();");
@@ -65,7 +62,7 @@ namespace TPWinForm_equipo_19A
                 datos.setearParametro("@IdCategoria", nuevo.categoria.Id);
                 datos.setearParametro("@Precio", nuevo.Precio);
 
-           
+
 
                 datos.abrirConexion();
                 datos.Comando.Connection = datos.Conexion;
@@ -82,7 +79,7 @@ namespace TPWinForm_equipo_19A
             {
                 throw ex;
             }
-          
+
 
         }
 
@@ -111,7 +108,7 @@ namespace TPWinForm_equipo_19A
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
+                //MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
             }
 
         }
@@ -122,21 +119,21 @@ namespace TPWinForm_equipo_19A
             {
                 AccesoDatos datos = new AccesoDatos();
                 datos.setearConsulta("delete from ARTICULOS where id = @id");
-                datos.setearParametro("@id",id);
+                datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
+                //MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
             }
 
         }
 
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
-            List<Articulo> lista = new List<Articulo> ();
-            AccesoDatos datos = new AccesoDatos ();
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
             try
             {
                 string consulta = "SELECT A.Id, A.Codigo, A.Nombre, A.Descripcion, A.Precio, C.Descripcion AS Categoria, M.Descripcion AS Marca, I.ImagenUrl AS urlImagen, A.IdMarca, A.IdCategoria FROM ARTICULOS A LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id LEFT JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN IMAGENES I ON A.Id = I.IdArticulo WHERE ";
@@ -215,6 +212,31 @@ namespace TPWinForm_equipo_19A
             {
                 throw ex;
             }
+        }
+
+        public List<Imagen> ListarImagenes()
+        {
+            List<Imagen> lista = new List<Imagen>();
+            AccesoDatos datos = new AccesoDatos();
+            try
+            {
+                datos.setearConsulta("SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES");
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Imagen aux = new Imagen();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.IdArticulo = (int)datos.Lector["IdArticulo"];
+                    aux.ImagenUrl = datos.Lector["ImagenUrl"].ToString();
+                    lista.Add(aux);
+                }
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 

@@ -1,0 +1,23 @@
+﻿.carousel-item img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.card {
+    margin: 10px;
+    width: 350px;
+    height: 550px;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 300px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: darkgrey;
+}
