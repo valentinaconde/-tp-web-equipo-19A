@@ -7,7 +7,7 @@ Realizado por Valentina Conde, Les Yparraguirre y Milagros Dubuis.
     git clone https://github.com/valentinaconde/tp-web-equipo-19A.git
 
 # Descripcion del proyecto:<br/>
-Promo WEB<br/>
+##Promo WEB<br/>
 Partiendo de la arquitectura armada en el TP de Catálogo de Productos, construir una aplicación web con las siguientes características:<br/>
 <br/>
 Se requiere crear una aplicación para una promoción de un importante comercio. El comercio otorga vouchers con códigos para participar de una promoción por el sorteo de determinados premios. Estos vouchers se otorgan cada vez que el cliente realiza una compra en el establecimiento. El cliente debe ingresar a la página web del comercio e ingresar el código promocional que adquirió con la compra realizada. El sistema deberá constatar que el código sea válido chequeando su existencia en la base de datos. Si es correcto, el paso siguiente será seleccionar el premio por el cual se quiere participar. Si el código de voucher es incorrecto o ya ha sido utilizado, se deberá notificar al usuario en una pantalla aclaratoria con un botón para redirigir al inicio.
