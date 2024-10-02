@@ -22,9 +22,9 @@ namespace Negocio
                 {
                     Voucher aux = new Voucher();
                     aux.codigoVoucher = datos.Lector["codigoVoucher"] as string;
-                    aux.idCliente = datos.Lector["idCliente"] != DBNull.Value ? (int)datos.Lector["idCliente"] : 0;
-                    aux.fechaCanje = datos.Lector["fechaCanje"] != DBNull.Value ? (DateTime)datos.Lector["fechaCanje"] : DateTime.MinValue;
-                    aux.idArticulo = datos.Lector["idArticulo"] != DBNull.Value ? (int)datos.Lector["idArticulo"] : 0;
+                    aux.idCliente = datos.Lector["idCliente"] != DBNull.Value ? (int?)datos.Lector["idCliente"] : null;
+                    aux.fechaCanje = datos.Lector["fechaCanje"] != DBNull.Value ? (DateTime?)datos.Lector["fechaCanje"] : null;
+                    aux.idArticulo = datos.Lector["idArticulo"] != DBNull.Value ? (int?)datos.Lector["idArticulo"] : null;
 
                     lista.Add(aux);
                 }

@@ -20,8 +20,8 @@ namespace tp_web_equipo_19A
         protected void TextBoxDni_TextChanged(object sender, EventArgs e)
         {
             ClienteNegocio clienteNegocio = new ClienteNegocio();
-            ListaCliente = clienteNegocio.Listar();
             Cliente cliente = new Cliente();
+            ListaCliente = clienteNegocio.Listar();
 
             cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
 

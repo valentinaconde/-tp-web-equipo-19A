@@ -8,7 +8,8 @@
             <asp:TextBox ID="voucherText" runat="server" CssClass="form-control"></asp:TextBox>
             <div>
                 <asp:Button ID="BtnVoucherSig" runat="server" CssClass="btn btn-primary mt-2" Text="Siguiente" OnClick="BtnVoucherSig_Click" />
-             </div>
+
+            </div>
         </div>
    
     </main>

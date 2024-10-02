@@ -20,19 +20,17 @@ namespace tp_web_equipo_19A
         protected void BtnVoucherSig_Click(object sender, EventArgs e)
         {
             VoucherNegocio voucherNegocio = new VoucherNegocio();
+            Voucher voucher = new Voucher();
             ListaVoucher = voucherNegocio.listar();
 
-            bool existeEnBD = false;
-            ListaVoucher.ForEach(voucherBD => {
-                if (voucherBD.codigoVoucher == voucherText.Text)
-                    existeEnBD = true;
-            });
+            voucher = ListaVoucher.Find(voucherBD => voucherBD.codigoVoucher == voucherText.Text);
 
-            if(!existeEnBD)
+            if (voucher != null && voucher.fechaCanje == null)
             {
-                Response.Redirect("ErrorVoucher.aspx", false);
+                Response.Redirect("Premios.aspx?voucher=" + voucherText.Text, false);
             }
-            else Response.Redirect("Premios.aspx?voucher=" + voucherText.Text, false);
+            else Response.Redirect("ErrorVoucher.aspx", false);
+            
         }
     }
 }

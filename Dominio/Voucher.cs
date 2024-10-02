@@ -9,10 +9,10 @@ namespace Dominio
     public class Voucher
     {
         public string codigoVoucher { get; set; }
-        public int idCliente { get; set; }
+        public int? idCliente { get; set; }
 
-        public DateTime fechaCanje { get; set; }
+        public DateTime? fechaCanje { get; set; }
 
-        public int idArticulo { get; set; }
+        public int? idArticulo { get; set; }
     }
 }
