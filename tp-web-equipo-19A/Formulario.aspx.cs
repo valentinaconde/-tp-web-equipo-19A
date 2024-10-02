@@ -23,20 +23,12 @@ namespace tp_web_equipo_19A
             ListaCliente = clienteNegocio.Listar();
             Cliente cliente = new Cliente();
 
-            bool existeEnBD = false;
-            ListaCliente.ForEach(clienteBD => {
-                if (clienteBD.Documento == TextBoxDni.Text)
-                    existeEnBD = true;
-                    cliente = clienteBD;
-
-            });
+            cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
 
             //TO DO: hacer logica para guardar en FORMULARIO
-
-            if (existeEnBD)
+            if (cliente != null)
             {
-               
-
+                
             }
         
 

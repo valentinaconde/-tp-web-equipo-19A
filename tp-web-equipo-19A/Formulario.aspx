@@ -7,7 +7,6 @@
                 <div>
                     <asp:Label ID="labelDni" CssClass="form-label"  runat="server" Text="DNI"></asp:Label>
                     <asp:TextBox ID="TextBoxDni" CssClass="form-control" runat="server" OnTextChanged="TextBoxDni_TextChanged" AutoPostBack="true"></asp:TextBox>
-
                 </div>
              </div>
             <div  class="row my-3">
