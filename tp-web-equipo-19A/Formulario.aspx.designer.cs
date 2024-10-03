@@ -42,6 +42,15 @@ namespace tp_web_equipo_19A
         protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldDni;
 
         /// <summary>
+        /// Control regexDni.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexDni;
+
+        /// <summary>
         /// Control labelNombre.
         /// </summary>
         /// <remarks>
@@ -123,6 +132,15 @@ namespace tp_web_equipo_19A
         protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldEmail;
 
         /// <summary>
+        /// Control regexEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexEmail;
+
+        /// <summary>
         /// Control labelDireccion.
         /// </summary>
         /// <remarks>
@@ -202,6 +220,15 @@ namespace tp_web_equipo_19A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldCP;
+
+        /// <summary>
+        /// Control regexCP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexCP;
 
         /// <summary>
         /// Control CheckBoxTerms.

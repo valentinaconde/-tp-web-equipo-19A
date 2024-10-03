@@ -8,8 +8,19 @@
                     <asp:Label ID="labelDni" CssClass="form-label"  runat="server" Text="DNI"></asp:Label>
                     <asp:TextBox ID="TextBoxDni" CssClass="form-control" runat="server" OnTextChanged="TextBoxDni_TextChanged" AutoPostBack="true"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="fieldDni" runat="server" ControlToValidate="TextBoxDni" ErrorMessage="Requiere DNI" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator 
+                        ID="regexDni" 
+                        runat="server" 
+                        ControlToValidate="TextBoxDni"
+                        ErrorMessage="DNI no es válido (debe ser numérico)" 
+                        CssClass="text-danger"
+                        ValidationExpression="^\d+$" 
+                        Display="Dynamic">
+                    </asp:RegularExpressionValidator>
                 </div>
              </div>
+            
+
             <div  class="row my-3">
                  <div class="col-4">
                      <asp:Label ID="labelNombre" CssClass="form-label"  runat="server" Text="Nombre"></asp:Label>
@@ -21,13 +32,23 @@
                     <asp:TextBox ID="TextBoxApellido" CssClass="form-control" runat="server"></asp:TextBox>
                <asp:RequiredFieldValidator ID="fieldApellido" runat="server" ControlToValidate="TextBoxApellido" ErrorMessage="Requiere Apellido" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
-                  <div class="col-4 ">
-                      
+
+
+                  <div class="col-4 ">      
                       <asp:Label ID="labelEmail" CssClass="form-label"  runat="server" Text="Email"></asp:Label>
                       <div class="input-group">
                           <span class="input-group-text">@</span>
                           <asp:TextBox ID="TextBoxEmail" CssClass="form-control" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="fieldEmail" runat="server" ControlToValidate="TextBoxEmail" ErrorMessage="Requiere Email" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator 
+                        ID="regexEmail" 
+                        runat="server" 
+                        ControlToValidate="TextBoxEmail"
+                        ErrorMessage="Email no es válido" 
+                        CssClass="text-danger"
+                        ValidationExpression="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" 
+                        Display="Dynamic">
+                    </asp:RegularExpressionValidator>
                       </div>
                   </div>
      
@@ -38,16 +59,29 @@
                     <asp:TextBox ID="TextBoxDireccion" CssClass="form-control w-100" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="fieldDireccion" runat="server" ControlToValidate="TextBoxDireccion" ErrorMessage="Requiere Direccion" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
+
                 <div class="col-4">
                     <asp:Label ID="labelCiudad" CssClass="form-label"  runat="server" Text="Ciudad"></asp:Label>
                     <asp:TextBox ID="TextBoxCiudad" CssClass="form-control" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="fieldCiudad" runat="server" ControlToValidate="TextBoxCiudad" ErrorMessage="Requiere Ciudad" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
+
                 <div class="col-4">
                     <asp:Label ID="labelCP" CssClass="form-label"  runat="server" Text="CP"></asp:Label>
                     <asp:TextBox ID="TextBoxCP" CssClass="form-control" runat="server" placeholder="Código Postal"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="fieldCP" runat="server" ControlToValidate="TextBoxCP" ErrorMessage="Requiere Codigo Postal" CssClass="text-danger" Display="Dynamic"></asp:RequiredFieldValidator>
-                    </div>
+                     <asp:RegularExpressionValidator 
+                        ID="regexCP" 
+                        runat="server" 
+                        ControlToValidate="TextBoxCP"
+                        ErrorMessage="Código Postal no es válido" 
+                        CssClass="text-danger"
+                        ValidationExpression="^\d+$" 
+                        Display="Dynamic">
+                    </asp:RegularExpressionValidator>
+                    <!--el codigo postal puede ser alfanumerico revisar eso-->
+                </div>
+
             </div>
              <div class="my-3">
                  <asp:CheckBox ID="CheckBoxTerms" Text="Acepto los términos y condiciones." runat="server" />
