@@ -19,6 +19,20 @@ namespace tp_web_equipo_19A
 
         protected void TextBoxDni_TextChanged(object sender, EventArgs e)
         {
+            string dni = TextBoxDni.Text;
+
+            // validacion para revisar que el DNI sea numerico
+            if (!EsNumerico(dni))
+            {
+                labelDni.Text = "El DNI ingresado no es válido. Debe contener solo números.";
+                labelDni.Visible = true;
+                return;
+            }
+            else
+            {
+                labelDni.Text = "DNI";
+            }
+
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             Cliente cliente = new Cliente();
             ListaCliente = clienteNegocio.Listar();
@@ -61,6 +75,17 @@ namespace tp_web_equipo_19A
             //to do: agregar excepciones
         
 
+        }
+        private bool EsNumerico(string texto)
+        {
+            foreach (char c in texto)
+            {
+                if (char.IsDigit(c) == false)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

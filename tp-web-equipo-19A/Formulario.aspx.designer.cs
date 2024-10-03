@@ -60,6 +60,15 @@ namespace tp_web_equipo_19A
         protected global::System.Web.UI.WebControls.TextBox TextBoxNombre;
 
         /// <summary>
+        /// Control fieldNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldNombre;
+
+        /// <summary>
         /// Control labelApellido.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace tp_web_equipo_19A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxApellido;
+
+        /// <summary>
+        /// Control fieldApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldApellido;
 
         /// <summary>
         /// Control labelEmail.
@@ -96,6 +114,15 @@ namespace tp_web_equipo_19A
         protected global::System.Web.UI.WebControls.TextBox TextBoxEmail;
 
         /// <summary>
+        /// Control fieldEmail.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldEmail;
+
+        /// <summary>
         /// Control labelDireccion.
         /// </summary>
         /// <remarks>
@@ -112,6 +139,15 @@ namespace tp_web_equipo_19A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxDireccion;
+
+        /// <summary>
+        /// Control fieldDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldDireccion;
 
         /// <summary>
         /// Control labelCiudad.
@@ -132,6 +168,15 @@ namespace tp_web_equipo_19A
         protected global::System.Web.UI.WebControls.TextBox TextBoxCiudad;
 
         /// <summary>
+        /// Control fieldCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldCiudad;
+
+        /// <summary>
         /// Control labelCP.
         /// </summary>
         /// <remarks>
@@ -148,6 +193,15 @@ namespace tp_web_equipo_19A
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxCP;
+
+        /// <summary>
+        /// Control fieldCP.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator fieldCP;
 
         /// <summary>
         /// Control CheckBoxTerms.
