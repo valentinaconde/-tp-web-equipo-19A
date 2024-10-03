@@ -26,10 +26,34 @@ namespace tp_web_equipo_19A
             cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
 
             //TO DO: hacer logica para guardar en FORMULARIO
+            //VALIDACION DNI
             if (cliente != null)
             {
-                
+                TextBoxNombre.Text = cliente.Nombre;
+                TextBoxApellido.Text = cliente.Apellido;
+                TextBoxEmail.Text = cliente.Email;
+                TextBoxDireccion.Text = cliente.Direccion;
+                TextBoxCiudad.Text = cliente.Ciudad;
+                TextBoxCP.Text = cliente.CP.ToString();
+
+                TextBoxNombre.Enabled = false; 
+                TextBoxApellido.Enabled = false;
+
+              
+
+            } else
+            {
+                TextBoxNombre.Text = string.Empty;
+                TextBoxApellido.Text = string.Empty;
+                TextBoxEmail.Text = string.Empty;
+                TextBoxDireccion.Text = string.Empty;
+                TextBoxCiudad.Text = string.Empty;
+                TextBoxCP.Text = string.Empty;
+
+                TextBoxNombre.Enabled = true;
+                TextBoxApellido.Enabled = true;
             }
+            //to do: agregar excepciones
         
 
         }
