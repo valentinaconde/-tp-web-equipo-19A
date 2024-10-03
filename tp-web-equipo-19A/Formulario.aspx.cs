@@ -38,8 +38,13 @@ namespace tp_web_equipo_19A
 
                 TextBoxNombre.Enabled = false; 
                 TextBoxApellido.Enabled = false;
+                TextBoxEmail.Enabled = false;
+                TextBoxDireccion.Enabled = false;
+                TextBoxCiudad.Enabled = false;
+                TextBoxCP.Enabled = false;
 
-              
+
+
 
             } else
             {
