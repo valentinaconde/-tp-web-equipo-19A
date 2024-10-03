@@ -53,7 +53,8 @@
                  <asp:CheckBox ID="CheckBoxTerms" Text="Acepto los términos y condiciones." runat="server" />
             </div>
             <div>
-                <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Participar!" />
+                <asp:Button ID="btnParticipar" runat="server" CssClass="btn btn-primary" Text="Participar!" OnClick="btnParticipar_Click" />
+                <asp:Label ID="lblParticipar" CssClass="form-label"  runat="server" Text=""></asp:Label>
             </div>
         </div>
     </div>

@@ -76,6 +76,7 @@ namespace tp_web_equipo_19A
         
 
         }
+
         private bool EsNumerico(string texto)
         {
             foreach (char c in texto)
@@ -86,6 +87,20 @@ namespace tp_web_equipo_19A
                 }
             }
             return true;
+        }
+
+        protected void btnParticipar_Click(object sender, EventArgs e)
+        {
+            if (CheckBoxTerms.Checked == false)
+            {
+                lblParticipar.Text = "Debe aceptar los términos y condiciones.";
+                lblParticipar.Visible = true;
+                return;
+            }
+            else
+            {
+                lblParticipar.Visible = false;
+            }
         }
     }
 }

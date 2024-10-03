@@ -213,12 +213,21 @@ namespace tp_web_equipo_19A
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxTerms;
 
         /// <summary>
-        /// Control Button1.
+        /// Control btnParticipar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnParticipar;
+
+        /// <summary>
+        /// Control lblParticipar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblParticipar;
     }
 }
