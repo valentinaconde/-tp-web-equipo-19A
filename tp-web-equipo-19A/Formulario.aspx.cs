@@ -75,6 +75,11 @@ namespace tp_web_equipo_19A
 
                     TextBoxNombre.Enabled = true;
                     TextBoxApellido.Enabled = true;
+
+                    TextBoxEmail.Enabled = true;
+                    TextBoxDireccion.Enabled = true;
+                    TextBoxCiudad.Enabled = true;
+                    TextBoxCP.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -111,6 +116,31 @@ namespace tp_web_equipo_19A
             {
                 lblParticipar.Visible = false;
             }
+            //
+            ClienteNegocio clienteNegocio = new ClienteNegocio();
+            ListaCliente = clienteNegocio.Listar();
+            Cliente cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
+
+            if(cliente == null)
+            {
+                cliente = new Cliente();
+                AccesoDatos datos = new AccesoDatos();
+
+                cliente.Documento = TextBoxDni.Text;
+                cliente.Nombre = TextBoxNombre.Text;
+                cliente.Apellido = TextBoxApellido.Text;
+                cliente.Email = TextBoxEmail.Text;
+                cliente.Direccion = TextBoxDireccion.Text;
+                cliente.Ciudad = TextBoxCiudad.Text;
+                cliente.CP = int.Parse(TextBoxCP.Text);
+
+                clienteNegocio.agregar(cliente);
+            }
+
+
+
+
+            
         }
     }
 }
