@@ -56,6 +56,9 @@
                 <asp:Button ID="btnParticipar" runat="server" CssClass="btn btn-primary" Text="Participar!" OnClick="btnParticipar_Click" />
                 <asp:Label ID="lblParticipar" CssClass="form-label"  runat="server" Text=""></asp:Label>
             </div>
+            <div>
+                <asp:Label ID="lblError" CssClass="form-label"  runat="server" Text=""></asp:Label>
+            </div>
         </div>
     </div>
 </asp:Content>

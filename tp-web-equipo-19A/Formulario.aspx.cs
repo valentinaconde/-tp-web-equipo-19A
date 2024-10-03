@@ -30,50 +30,60 @@ namespace tp_web_equipo_19A
             }
             else
             {
-                labelDni.Text = "DNI";
+                labelDni.Visible = false;
             }
 
             ClienteNegocio clienteNegocio = new ClienteNegocio();
-            Cliente cliente = new Cliente();
-            ListaCliente = clienteNegocio.Listar();
-
-            cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
-
-            //TO DO: hacer logica para guardar en FORMULARIO
-            //VALIDACION DNI
-            if (cliente != null)
+            //excepcion
+            try
             {
-                TextBoxNombre.Text = cliente.Nombre;
-                TextBoxApellido.Text = cliente.Apellido;
-                TextBoxEmail.Text = cliente.Email;
-                TextBoxDireccion.Text = cliente.Direccion;
-                TextBoxCiudad.Text = cliente.Ciudad;
-                TextBoxCP.Text = cliente.CP.ToString();
+                Cliente cliente = new Cliente();
+                ListaCliente = clienteNegocio.Listar();
 
-                TextBoxNombre.Enabled = false; 
-                TextBoxApellido.Enabled = false;
-                TextBoxEmail.Enabled = false;
-                TextBoxDireccion.Enabled = false;
-                TextBoxCiudad.Enabled = false;
-                TextBoxCP.Enabled = false;
+                cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
+
+                //TO DO: hacer logica para guardar en FORMULARIO
+                //VALIDACION DNI
+                if (cliente != null)
+                {
+                    TextBoxNombre.Text = cliente.Nombre;
+                    TextBoxApellido.Text = cliente.Apellido;
+                    TextBoxEmail.Text = cliente.Email;
+                    TextBoxDireccion.Text = cliente.Direccion;
+                    TextBoxCiudad.Text = cliente.Ciudad;
+                    TextBoxCP.Text = cliente.CP.ToString();
+
+                    TextBoxNombre.Enabled = false;
+                    TextBoxApellido.Enabled = false;
+                    TextBoxEmail.Enabled = false;
+                    TextBoxDireccion.Enabled = false;
+                    TextBoxCiudad.Enabled = false;
+                    TextBoxCP.Enabled = false;
 
 
 
 
-            } else
+                }
+                else
+                {
+                    TextBoxNombre.Text = string.Empty;
+                    TextBoxApellido.Text = string.Empty;
+                    TextBoxEmail.Text = string.Empty;
+                    TextBoxDireccion.Text = string.Empty;
+                    TextBoxCiudad.Text = string.Empty;
+                    TextBoxCP.Text = string.Empty;
+
+                    TextBoxNombre.Enabled = true;
+                    TextBoxApellido.Enabled = true;
+                }
+            }
+            catch (Exception ex)
             {
-                TextBoxNombre.Text = string.Empty;
-                TextBoxApellido.Text = string.Empty;
-                TextBoxEmail.Text = string.Empty;
-                TextBoxDireccion.Text = string.Empty;
-                TextBoxCiudad.Text = string.Empty;
-                TextBoxCP.Text = string.Empty;
-
-                TextBoxNombre.Enabled = true;
-                TextBoxApellido.Enabled = true;
+                lblError.Text = "Error " + ex;
+                lblError.Visible = true;
             }
             //to do: agregar excepciones
-        
+
 
         }
 
