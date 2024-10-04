@@ -106,45 +106,70 @@ namespace tp_web_equipo_19A
 
         protected void btnParticipar_Click(object sender, EventArgs e)
         {
-            if (CheckBoxTerms.Checked == false)
+            if (!CheckBoxTerms.Checked)
             {
                 lblParticipar.Text = "Debe aceptar los términos y condiciones.";
                 lblParticipar.Visible = true;
                 return;
             }
-            else
-            {
-                lblParticipar.Visible = false;
-            }
-            //
+
+            lblParticipar.Visible = false;
+
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             ListaCliente = clienteNegocio.Listar();
-            Cliente cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
+            Cliente cliente = ListaCliente.Find(c => c.Documento == TextBoxDni.Text);
 
-            if(cliente == null)
+            // Si el cliente no existe, crear uno nuevo
+            if (cliente == null)
             {
                 cliente = new Cliente();
-                AccesoDatos datos = new AccesoDatos();
-
-                cliente.Documento = TextBoxDni.Text;
-                cliente.Nombre = TextBoxNombre.Text;
-                cliente.Apellido = TextBoxApellido.Text;
-                cliente.Email = TextBoxEmail.Text;
-                cliente.Direccion = TextBoxDireccion.Text;
-                cliente.Ciudad = TextBoxCiudad.Text;
-                cliente.CP = int.Parse(TextBoxCP.Text);
+               
+                    cliente.Documento = TextBoxDni.Text;
+                    cliente.Nombre = TextBoxNombre.Text;
+                    cliente.Apellido = TextBoxApellido.Text;
+                    cliente.Email = TextBoxEmail.Text;
+                    cliente.Direccion = TextBoxDireccion.Text;
+                    cliente.Ciudad = TextBoxCiudad.Text;
+                    cliente.CP = int.Parse(TextBoxCP.Text);
+                
 
                 clienteNegocio.agregar(cliente);
 
                 lblParticipar.Text = "¡Cliente registrado exitosamente!";
-                lblParticipar.Visible = true;
             }
             else
             {
                 lblParticipar.Text = "El cliente ya está registrado.";
-                lblParticipar.Visible = true;
             }
 
+            //voucher
+            if (Request.QueryString["voucher"] != null)
+            {
+                string voucherId = Request.QueryString["voucher"];
+                if (Request.QueryString["Art"] != null) {
+                    int? Artid = int.Parse(Request.QueryString["Art"]);
+
+                    VoucherNegocio voucherNegocio = new VoucherNegocio();
+                    Voucher voucher = new Voucher();
+                    DateTime fecha = DateTime.Today;
+
+                    voucher.codigoVoucher = voucherId;
+                    voucher.idCliente = cliente.Id;
+                    voucher.fechaCanje = fecha;
+                    voucher.idArticulo = Artid;
+
+                    voucherNegocio.modificar(int.Parse(voucher.codigoVoucher), (int)voucher.idCliente, (DateTime)voucher.fechaCanje, (int)(int?)voucher.idArticulo);
+
+                    lblParticipar.Text += " y voucher utilizado!";
+
+                } else 
+                { 
+                    int? Artid = null; 
+                }
+            }
+
+            lblParticipar.Visible = true;
+            //
             // Reiniciar todos campos del formulario
             TextBoxDni.Text = string.Empty;
             TextBoxNombre.Text = string.Empty;
