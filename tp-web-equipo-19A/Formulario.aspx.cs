@@ -135,12 +135,18 @@ namespace tp_web_equipo_19A
                 cliente.CP = int.Parse(TextBoxCP.Text);
 
                 clienteNegocio.agregar(cliente);
+
+                lblParticipar.Text = "¡Cliente registrado exitosamente!";
+                lblParticipar.Visible = true;
+            }
+            else
+            {
+                lblParticipar.Text = "El cliente ya está registrado.";
+                lblParticipar.Visible = true;
             }
 
 
 
-
-            
         }
     }
 }
