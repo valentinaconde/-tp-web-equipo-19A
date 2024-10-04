@@ -102,5 +102,40 @@ namespace Negocio
                 throw ex;
             }
         }
+
+
+        public Cliente buscarCliente(string DNI)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Cliente cliente = new Cliente();
+            try
+            {
+                datos.setearConsulta("SELECT Id, Documento, Nombre, Apellido, Email, Direccion, Ciudad, CP FROM CLIENTES WHERE Documento = @DNI");
+                datos.setearParametro("@DNI", DNI);
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read())
+                {
+                    cliente.Id = (int)datos.Lector["Id"];
+                    cliente.Documento = datos.Lector["Documento"] != DBNull.Value ? datos.Lector["Documento"].ToString() : string.Empty;
+                    cliente.Nombre = datos.Lector["Nombre"] != DBNull.Value ? datos.Lector["Nombre"].ToString() : string.Empty;
+                    cliente.Apellido = datos.Lector["Apellido"] != DBNull.Value ? datos.Lector["Apellido"].ToString() : string.Empty;
+                    cliente.Email = datos.Lector["Email"] != DBNull.Value ? datos.Lector["Email"].ToString() : string.Empty;
+                    cliente.Direccion = datos.Lector["Direccion"] != DBNull.Value ? datos.Lector["Direccion"].ToString() : string.Empty;
+                    cliente.Ciudad = datos.Lector["Ciudad"] != DBNull.Value ? datos.Lector["Ciudad"].ToString() : string.Empty;
+                    cliente.CP = datos.Lector["CP"] != DBNull.Value ? (int)datos.Lector["CP"] : 0;
+                }
+
+                return cliente;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

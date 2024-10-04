@@ -108,7 +108,8 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
+                throw ex;
+
             }
 
         }
@@ -125,7 +126,7 @@ namespace Negocio
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
+                throw ex;
             }
 
         }

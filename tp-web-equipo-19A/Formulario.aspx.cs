@@ -124,7 +124,6 @@ namespace tp_web_equipo_19A
             ListaCliente = clienteNegocio.Listar();
             Cliente cliente = ListaCliente.Find(c => c.Documento == TextBoxDni.Text);
 
-            // Si el cliente no existe, crear uno nuevo
             if (cliente == null)
             {
                 cliente = new Cliente();
@@ -147,7 +146,11 @@ namespace tp_web_equipo_19A
                 lblParticipar.Text = "El cliente ya está registrado.";
             }
 
-            //voucher
+            string DNI = TextBoxDni.Text;
+            cliente = clienteNegocio.buscarCliente(DNI);
+
+
+
             if (Request.QueryString["voucherId"] != null)
             {
                 string voucherId = Request.QueryString["voucherId"];
@@ -165,7 +168,6 @@ namespace tp_web_equipo_19A
 
                     voucherNegocio.modificar(voucher.CodigoVoucher, (int)voucher.IdCliente, (DateTime)voucher.FechaCanje, (int)voucher.IdArticulo);
 
-                    //voucherNegocio.modificar(int.Parse(voucher.CodigoVoucher), (int)voucher.IdCliente, (DateTime)voucher.FechaCanje, (int)(int?)voucher.IdArticulo);
                     lblParticipar.Text += " y voucher utilizado!";
 
                 } else 
@@ -175,8 +177,7 @@ namespace tp_web_equipo_19A
             }
 
             lblParticipar.Visible = true;
-            //
-            // Reiniciar todos campos del formulario
+           
             TextBoxDni.Text = string.Empty;
             TextBoxNombre.Text = string.Empty;
             TextBoxApellido.Text = string.Empty;
