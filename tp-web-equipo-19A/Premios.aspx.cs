@@ -18,6 +18,8 @@ namespace tp_web_equipo_19A
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (!IsPostBack)
+            {
                 if (Request.QueryString["voucher"] != null)
                 {
                     System.Diagnostics.Debug.WriteLine("ENTRA");
@@ -32,7 +34,7 @@ namespace tp_web_equipo_19A
                 ListaArticulo = negocio.Listar();
                 ListaImagen = negocio.ListarImagenes();
 
-
+            }
         }
     }
 }
