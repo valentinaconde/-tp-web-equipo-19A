@@ -4,8 +4,8 @@
 
     <main>
         <div class="container">
-            <p>Ingresá el código de tu voucher!</p>
-            <p>Prueba Mili</p>
+            <p class="fs-4 fw-medium">Ingresá el código de tu voucher!</p>
+            <p class="fs-6 fst-italic">El código distingue entre mayúsculas y minúsculas</p>
             <asp:TextBox ID="voucherText" runat="server" CssClass="form-control"></asp:TextBox>
             <div>
                 <asp:Button ID="BtnVoucherSig" runat="server" CssClass="btn btn-primary mt-2" Text="Siguiente" OnClick="BtnVoucherSig_Click" />

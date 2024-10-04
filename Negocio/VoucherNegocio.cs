@@ -15,16 +15,16 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select codigoVoucher, idCliente, fechaCanje, idArticulo from VOUCHERS");
+                datos.setearConsulta("select CodigoVoucher, IdCliente, FechaCanje, IdArticulo from VOUCHERS");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
                 {
                     Voucher aux = new Voucher();
-                    aux.codigoVoucher = datos.Lector["codigoVoucher"] as string;
-                    aux.idCliente = datos.Lector["idCliente"] != DBNull.Value ? (int?)datos.Lector["idCliente"] : null;
-                    aux.fechaCanje = datos.Lector["fechaCanje"] != DBNull.Value ? (DateTime?)datos.Lector["fechaCanje"] : null;
-                    aux.idArticulo = datos.Lector["idArticulo"] != DBNull.Value ? (int?)datos.Lector["idArticulo"] : null;
+                    aux.CodigoVoucher = datos.Lector["CodigoVoucher"] as string;
+                    aux.IdCliente = datos.Lector["IdCliente"] != DBNull.Value ? (int?)datos.Lector["IdCliente"] : null;
+                    aux.FechaCanje = datos.Lector["FechaCanje"] != DBNull.Value ? (DateTime?)datos.Lector["FechaCanje"] : null;
+                    aux.IdArticulo = datos.Lector["IdArticulo"] != DBNull.Value ? (int?)datos.Lector["IdArticulo"] : null;
 
                     lista.Add(aux);
                 }
@@ -44,10 +44,10 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("insert into VOUCHERS (idCliente, fechaCanje, idArticulo) values (@idCliente, @fechaCanje, @idArticulo)");
-                datos.setearParametro("@idCliente", idCliente);
-                datos.setearParametro("@fechaCanje", fechaCanje);
-                datos.setearParametro("@idArticulo", idArticulo);
+                datos.setearConsulta("insert into VOUCHERS (IdCliente, FechaCanje, IdArticulo) values (@IdCliente, @FechaCanje, @IdArticulo)");
+                datos.setearParametro("@IdCliente", idCliente);
+                datos.setearParametro("@FechaCanje", fechaCanje);
+                datos.setearParametro("@IdArticulo", idArticulo);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -56,16 +56,17 @@ namespace Negocio
             }
         }
 
-        public void modificar(int codigoVoucher, int idCliente, DateTime fechaCanje, int idArticulo)
+
+        public void modificar(string codigoVoucher, int idCliente, DateTime fechaCanje, int idArticulo)
         {
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("update VOUCHERS set idCliente = @idCliente, fechaCanje = @fechaCanje, idArticulo = @idArticulo where codigoVoucher = @codigoVoucher");
-                datos.setearParametro("@idCliente", idCliente);
-                datos.setearParametro("@fechaCanje", fechaCanje);
-                datos.setearParametro("@idArticulo", idArticulo);
-                datos.setearParametro("@codigoVoucher", codigoVoucher);
+                datos.setearConsulta("update VOUCHERS set IdCliente = @IdCliente, FechaCanje = @FechaCanje, IdArticulo = @IdArticulo where CodigoVoucher = @CodigoVoucher");
+                datos.setearParametro("@IdCliente", idCliente);
+                datos.setearParametro("@FechaCanje", fechaCanje);
+                datos.setearParametro("@IdArticulo", idArticulo);
+                datos.setearParametro("@CodigoVoucher", codigoVoucher);
                 datos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -79,9 +80,9 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearParametro("@codigoVoucher", codigoVoucher);
+                datos.setearParametro("@CodigoVoucher", codigoVoucher);
 
-                datos.setearConsulta("delete from VOUCHERS where codigoVoucher = @codigoVoucher");
+                datos.setearConsulta("delete from VOUCHERS where CodigoVoucher = @CodigoVoucher");
                 datos.ejecutarAccion();
             }
             catch (Exception ex)

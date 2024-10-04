@@ -42,7 +42,6 @@ namespace tp_web_equipo_19A
 
                 cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
 
-                //TO DO: hacer logica para guardar en FORMULARIO
                 //VALIDACION DNI
                 if (cliente != null)
                 {
@@ -87,7 +86,6 @@ namespace tp_web_equipo_19A
                 lblError.Text = "Error " + ex;
                 lblError.Visible = true;
             }
-            //to do: agregar excepciones
 
 
         }
@@ -150,22 +148,24 @@ namespace tp_web_equipo_19A
             }
 
             //voucher
-            if (Request.QueryString["voucher"] != null)
+            if (Request.QueryString["voucherId"] != null)
             {
-                string voucherId = Request.QueryString["voucher"];
-                if (Request.QueryString["Art"] != null) {
-                    int? Artid = int.Parse(Request.QueryString["Art"]);
+                string voucherId = Request.QueryString["voucherId"];
+                if (Request.QueryString["Artid"] != null) {
+                    int? Artid = int.Parse(Request.QueryString["Artid"]);
 
                     VoucherNegocio voucherNegocio = new VoucherNegocio();
                     Voucher voucher = new Voucher();
                     DateTime fecha = DateTime.Today;
 
-                    voucher.codigoVoucher = voucherId;
-                    voucher.idCliente = cliente.Id;
-                    voucher.fechaCanje = fecha;
-                    voucher.idArticulo = Artid;
+                    voucher.CodigoVoucher = voucherId;
+                    voucher.IdCliente = cliente.Id;
+                    voucher.FechaCanje = fecha;
+                    voucher.IdArticulo = Artid;
 
-                    voucherNegocio.modificar(int.Parse(voucher.codigoVoucher), (int)voucher.idCliente, (DateTime)voucher.fechaCanje, (int)(int?)voucher.idArticulo);
+                    voucherNegocio.modificar(voucher.CodigoVoucher, (int)voucher.IdCliente, (DateTime)voucher.FechaCanje, (int)voucher.IdArticulo);
+
+                    //voucherNegocio.modificar(int.Parse(voucher.CodigoVoucher), (int)voucher.IdCliente, (DateTime)voucher.FechaCanje, (int)(int?)voucher.IdArticulo);
                     lblParticipar.Text += " y voucher utilizado!";
 
                 } else 

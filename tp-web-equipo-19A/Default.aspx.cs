@@ -23,9 +23,9 @@ namespace tp_web_equipo_19A
             Voucher voucher = new Voucher();
             ListaVoucher = voucherNegocio.listar();
 
-            voucher = ListaVoucher.Find(voucherBD => voucherBD.codigoVoucher == voucherText.Text);
+            voucher = ListaVoucher.Find(voucherBD => voucherBD.CodigoVoucher == voucherText.Text);
 
-            if (voucher != null && voucher.fechaCanje == null)
+            if (voucher != null && voucher.FechaCanje == null)
             {
                 Response.Redirect("Premios.aspx?voucher=" + voucherText.Text, false);
             }
