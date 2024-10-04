@@ -145,7 +145,15 @@ namespace tp_web_equipo_19A
                 lblParticipar.Visible = true;
             }
 
-
+            // Reiniciar todos campos del formulario
+            TextBoxDni.Text = string.Empty;
+            TextBoxNombre.Text = string.Empty;
+            TextBoxApellido.Text = string.Empty;
+            TextBoxEmail.Text = string.Empty;
+            TextBoxDireccion.Text = string.Empty;
+            TextBoxCiudad.Text = string.Empty;
+            TextBoxCP.Text = string.Empty;
+            CheckBoxTerms.Checked = false;
 
         }
     }
