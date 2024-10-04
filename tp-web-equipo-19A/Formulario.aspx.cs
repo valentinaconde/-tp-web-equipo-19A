@@ -115,6 +115,13 @@ namespace tp_web_equipo_19A
 
             lblParticipar.Visible = false;
 
+            if (!Page.IsValid)
+            {
+                lblError.Text = "Por favor, corregí los errores en el formulario.";
+                lblError.Visible = true;
+                return;
+            }
+
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             ListaCliente = clienteNegocio.Listar();
             Cliente cliente = ListaCliente.Find(c => c.Documento == TextBoxDni.Text);
@@ -159,12 +166,11 @@ namespace tp_web_equipo_19A
                     voucher.idArticulo = Artid;
 
                     voucherNegocio.modificar(int.Parse(voucher.codigoVoucher), (int)voucher.idCliente, (DateTime)voucher.fechaCanje, (int)(int?)voucher.idArticulo);
-
                     lblParticipar.Text += " y voucher utilizado!";
 
                 } else 
                 { 
-                    int? Artid = null; 
+                    lblParticipar.Text += " El voucher no es válido.";
                 }
             }
 

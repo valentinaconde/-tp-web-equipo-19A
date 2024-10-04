@@ -79,7 +79,6 @@
                         ValidationExpression="^\d+$" 
                         Display="Dynamic">
                     </asp:RegularExpressionValidator>
-                    <!--el codigo postal puede ser alfanumerico revisar eso-->
                 </div>
 
             </div>
