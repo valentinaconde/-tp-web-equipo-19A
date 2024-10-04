@@ -21,7 +21,6 @@ namespace tp_web_equipo_19A
         {
             string dni = TextBoxDni.Text;
 
-            // validacion para revisar que el DNI sea numerico
             if (!EsNumerico(dni))
             {
                 labelDni.Text = "El DNI ingresado no es válido. Debe contener solo números.";
@@ -34,7 +33,6 @@ namespace tp_web_equipo_19A
             }
 
             ClienteNegocio clienteNegocio = new ClienteNegocio();
-            //excepcion
             try
             {
                 Cliente cliente = new Cliente();
@@ -42,7 +40,6 @@ namespace tp_web_equipo_19A
 
                 cliente = ListaCliente.Find(Cliente => Cliente.Documento == TextBoxDni.Text);
 
-                //VALIDACION DNI
                 if (cliente != null)
                 {
                     TextBoxNombre.Text = cliente.Nombre;
@@ -124,68 +121,59 @@ namespace tp_web_equipo_19A
             ListaCliente = clienteNegocio.Listar();
             Cliente cliente = ListaCliente.Find(c => c.Documento == TextBoxDni.Text);
 
-            if (cliente == null)
+            try
             {
-                cliente = new Cliente();
+
+                if (cliente == null)
+                {
+                    cliente = new Cliente();
                
-                    cliente.Documento = TextBoxDni.Text;
-                    cliente.Nombre = TextBoxNombre.Text;
-                    cliente.Apellido = TextBoxApellido.Text;
-                    cliente.Email = TextBoxEmail.Text;
-                    cliente.Direccion = TextBoxDireccion.Text;
-                    cliente.Ciudad = TextBoxCiudad.Text;
-                    cliente.CP = int.Parse(TextBoxCP.Text);
+                        cliente.Documento = TextBoxDni.Text;
+                        cliente.Nombre = TextBoxNombre.Text;
+                        cliente.Apellido = TextBoxApellido.Text;
+                        cliente.Email = TextBoxEmail.Text;
+                        cliente.Direccion = TextBoxDireccion.Text;
+                        cliente.Ciudad = TextBoxCiudad.Text;
+                        cliente.CP = int.Parse(TextBoxCP.Text);
                 
 
-                clienteNegocio.agregar(cliente);
+                        clienteNegocio.agregar(cliente);
 
-                lblParticipar.Text = "¡Cliente registrado exitosamente!";
-            }
-            else
-            {
-                lblParticipar.Text = "El cliente ya está registrado.";
-            }
-
-            string DNI = TextBoxDni.Text;
-            cliente = clienteNegocio.buscarCliente(DNI);
-
-
-
-            if (Request.QueryString["voucherId"] != null)
-            {
-                string voucherId = Request.QueryString["voucherId"];
-                if (Request.QueryString["Artid"] != null) {
-                    int? Artid = int.Parse(Request.QueryString["Artid"]);
-
-                    VoucherNegocio voucherNegocio = new VoucherNegocio();
-                    Voucher voucher = new Voucher();
-                    DateTime fecha = DateTime.Today;
-
-                    voucher.CodigoVoucher = voucherId;
-                    voucher.IdCliente = cliente.Id;
-                    voucher.FechaCanje = fecha;
-                    voucher.IdArticulo = Artid;
-
-                    voucherNegocio.modificar(voucher.CodigoVoucher, (int)voucher.IdCliente, (DateTime)voucher.FechaCanje, (int)voucher.IdArticulo);
-
-                    lblParticipar.Text += " y voucher utilizado!";
-
-                } else 
-                { 
-                    lblParticipar.Text += " El voucher no es válido.";
                 }
-            }
+         
 
-            lblParticipar.Visible = true;
-           
-            TextBoxDni.Text = string.Empty;
-            TextBoxNombre.Text = string.Empty;
-            TextBoxApellido.Text = string.Empty;
-            TextBoxEmail.Text = string.Empty;
-            TextBoxDireccion.Text = string.Empty;
-            TextBoxCiudad.Text = string.Empty;
-            TextBoxCP.Text = string.Empty;
-            CheckBoxTerms.Checked = false;
+                string DNI = TextBoxDni.Text;
+                cliente = clienteNegocio.buscarCliente(DNI);
+
+
+
+                if (Request.QueryString["voucherId"] != null)
+                {
+                    string voucherId = Request.QueryString["voucherId"];
+                    if (Request.QueryString["Artid"] != null) {
+                        int? Artid = int.Parse(Request.QueryString["Artid"]);
+
+                        VoucherNegocio voucherNegocio = new VoucherNegocio();
+                        Voucher voucher = new Voucher();
+                        DateTime fecha = DateTime.Today;
+
+                        voucher.CodigoVoucher = voucherId;
+                        voucher.IdCliente = cliente.Id;
+                        voucher.FechaCanje = fecha;
+                        voucher.IdArticulo = Artid;
+
+                        voucherNegocio.modificar(voucher.CodigoVoucher, (int)voucher.IdCliente, (DateTime)voucher.FechaCanje, (int)voucher.IdArticulo);
+
+    
+                    } 
+                }
+                Response.Redirect("GuardadoExitoso.aspx", false);
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = "Error " + ex;
+                lblError.Visible = true;
+            }
 
         }
     }

@@ -119,6 +119,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="GuardadoExitoso.aspx" />
     <Content Include="Premios.aspx" />
     <Content Include="Premios.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -196,6 +197,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="GuardadoExitoso.aspx.cs">
+      <DependentUpon>GuardadoExitoso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuardadoExitoso.aspx.designer.cs">
+      <DependentUpon>GuardadoExitoso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Premios.aspx.cs">
       <DependentUpon>Premios.aspx</DependentUpon>
